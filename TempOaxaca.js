@@ -26,4 +26,32 @@ function calcularTemp() {
     document.getElementById("promedio").textContent = `Temperatura promedio: ${tempProm} °C`;
     document.getElementById("maxima").textContent = `Temperatura máxima: ${tempMax} °C`;
     document.getElementById("minima").textContent = `Temperatura mínima: ${tempMin} °C`;
+
+    //Gráfico
+    const dias = datos.map(dato => dato.dia);
+
+    if (grafico) {
+        grafico.destroy(); //Destruir el gráfico anterior si existe
+    }
+
+    grafico = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: dias,
+            datasets: [{
+                label: "Temperatura (°C)",
+                data: temperaturas,
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+                fill: false
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 };
