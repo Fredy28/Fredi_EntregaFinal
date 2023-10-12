@@ -3,6 +3,7 @@ const ctx = document.getElementById("grafico").getContext("2d");
 let grafico;
 
 function calcularTemp() {
+    //Llevar datos a la tabla
     const diaSemana = document.getElementById("dia").value;
     const temperatura = parseFloat(document.getElementById("temperatura").value);
 
@@ -16,6 +17,7 @@ function calcularTemp() {
     document.getElementById("dia").value = "Lunes";
     document.getElementById("temperatura").value = "";
 
+
     //Calcular estadísticas
     const gradosCelcius = datos.map(dato => dato.temperatura);
 
@@ -27,6 +29,7 @@ function calcularTemp() {
     document.getElementById("maxima").textContent = `Temperatura máxima: ${tempMax} °C`;
     document.getElementById("minima").textContent = `Temperatura mínima: ${tempMin} °C`;
 
+    
     //Gráfico
     const dias = datos.map(dato => dato.dia);
 
